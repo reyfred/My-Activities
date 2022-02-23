@@ -1,0 +1,67 @@
+<div class="container-fluid bg">
+  <div class="row">
+    <div class="col-sm-7">
+      <app-product-list (addToCart)="show($event)"></app-product-list>
+    </div>
+    <div class="col-sm-5 d-flex justify-content-center">
+      <div class="box">
+        <div class="d-flex justify-content-center">
+          <img style="bottom: 25px; position: relative; height: 70px; width: 70px;" src="../assets/cart.svg" alt="">
+          <h4 class="mt-3">Cart</h4>
+
+        </div>
+        <div class="scroll-box">
+          <div class="mt-2 row item-container" *ngFor="let items of cart">
+            <div class="btn d-flex justify-content-between">
+              <div id="name" style="height: 50px;" class="btn">{{ items.name }}</div>
+              <div id="price" style="height: 50px;" class="btn"><span>&#8369;</span> {{ items.price }}</div>
+              <div id="subtotal" style="height: 50px;" class="btn"><span>&#8369;</span> {{ items.price * items.qty }}</div>
+              <div id="qty" style="height: 50px;" class="btn" (click)="deletedItems(items)">{{ items.qty }}</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="mt-5 container-fluid d-flex justify-content-start">
+          <h5>Grand Total: </h5>
+        </div>
+        <div class="container-fluid d-flex justify-content-start">
+          <span>&#8369;</span>{{ grandTotal }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="row container-fluid">
+  <div class="col-sm-6 mt-2">
+    <app-product-list (addToCart)="show($event)"></app-product-list>
+  </div>
+  <div class="col-sm-6 mt-2">
+    <table class="table table-light table-hover">
+      <thead class="align-middle" style="color: #6d4358;">
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Sub Total</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cart">
+          <td scope="row">{{ items.name }}</td>
+          <td><span>&#8369;</span> {{ items.price }}</td>
+          <td>{{ items.qty }}</td>
+          <td><span>&#8369;</span> {{ items.price * items.qty }}</td>
+          <td><button (click)="deletedItems(items)" class="btn btn-outline-dark">-</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><h6 style="color: #6d4358;">Grand Total: </h6></td>
+          <td><span>&#8369;</span> {{ grandTotal }}</td>
+          </tr>
+      </tfoot>
+    </table>
+  </div>
+</div> -->

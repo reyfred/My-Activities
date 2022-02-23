@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "prod_name": "Samsung Galaxy S10",
+      "prod_category": "Electronics",
+      "price": 24000,
+      "condition": "Brand New",
+      "comment": "I have iPhone"
+    },
+    {
+      "id": 2,
+      "prod_name": "Time Machine",
+      "prod_category": "Electronics",
+      "price": 10000000,
+      "condition": "Brand New",
+      "comment": "Doesn't have space-time GPS"
+    }
+  ]
+}

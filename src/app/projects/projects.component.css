@@ -1,0 +1,82 @@
+*{
+  font-family: 'Prompt', sans-serif;
+}
+.bg{
+  height: 100vh;
+  width: 100%;
+  background-color: #313552;
+}
+.box1{
+  /* transform: translate(-50%, -50%); */
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 500px;
+  width: 300px;
+  transition: 0.2s;
+}
+
+.box2{
+  /* transform: translate(-50%, -50%); */
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 500px;
+  width: 300px;
+  transition: 0.2s;
+}
+
+.box3{
+  /* transform: translate(-50%, -50%); */
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 500px;
+  width: 300px;
+  transition: 0.2s;
+}
+h3{
+  color: #c94c4c;
+}
+.button{
+  color: azure;
+  border: 1px solid #c94c4c ;
+  background-color: #f7786b;
+  width: 250px;
+}
+.box1:hover{
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 520px;
+  width: 320px;
+  transition: 0.2s;
+}
+
+.box2:hover{
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 520px;
+  width: 320px;
+  transition: 0.2s;
+}
+
+.box3:hover{
+
+  margin-top: 130px;
+  border-radius: 20px;
+  background-color: azure;
+  height: 520px;
+  width: 320px;
+  transition: 0.2s;
+}
+*{
+  font-family: 'Prompt', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+}

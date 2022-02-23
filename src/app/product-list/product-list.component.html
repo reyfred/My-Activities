@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-start branding">
+    <img style="bottom: 25px; position: relative; height: 70px; width: 70px;" src="../assets/cup.png" alt="">
+    <h4 class="text-light" style="font-size: 50px;">Spilled Coffee</h4>
+  </div>
+  <div class="box">
+    <mat-grid-list gutterSize="5" cols="7" rowHeight="1:1">
+      <mat-grid-tile
+        *ngFor="let product of productsArr"
+        (click)="addThisProduct(product)"
+        style="background-color: #6d4358; color: white; cursor: pointer"
+      >
+        {{ product.name }}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+
+<!-- <mat-grid-list gutterSize="5" cols="5" rowHeight="1:1">
+        <mat-grid-tile
+          *ngFor="let product of productsArr"
+          (click)="addThisProduct(product)"
+          style="background-color: #6d4358; color: white; cursor: pointer"
+        >
+          {{ product.name }}
+        </mat-grid-tile>
+      </mat-grid-list> -->

@@ -1,0 +1,31 @@
+*{
+  font-family: 'Prompt', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+}
+.left-home{
+  background-color: #313552;
+  height: 100vh;
+}
+.up{
+  height: 10vh;
+  background-color: #313552;
+}
+.bot{
+  background-color: #313552;
+  height: 90vh;
+}
+.par{
+  font-size: 20px;
+  font-weight: bold;
+  color: #EEE6CE;
+  margin-left: 110px ;
+}
+.par1{
+  margin-left: 110px ;
+  margin-top: 130px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #2EB086;
+  letter-spacing: 5px;
+}
+

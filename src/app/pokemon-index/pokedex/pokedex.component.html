@@ -1,0 +1,46 @@
+<div class="wrap container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="box">
+        <img style="left: 80px; bottom: 50px; position: relative; width: 260px; height: 120px;"
+          src="../assets/pokeball.svg" alt="">
+        <div class="poke-container text-center">
+          <div class="btn p-0" *ngFor="let pokemon of pokemons | filter:filterPokemon" (click)="sendPokeball(pokemon)">
+            <div class="pokemon-tile d-flex justify-content-evenly btn">
+              <img style="border-radius: 50px; width: 50px; height: 45px;" [src]="pokemon.sprites.front_default" alt="">
+              <h4>{{pokemon.name}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <app-poke-container [myPokemon]="pokeball"></app-poke-container>
+    </div>
+  </div>
+</div>
+<!-- <div class="container-fluid mt-5 bg">
+  <h4>Pokedex</h4>
+  <input type="text" class="form-control" placeholder="Search Pokemon by: Name/Type" [(ngModel)]="filterPokemon">
+  <h5>{{filterPokemon}}</h5>
+  <div class="pokemon-grid mt-2">
+    <div *ngFor="let pokemon of pokemons | filter:filterPokemon" class="box">
+      <img [src]="pokemon.sprites.front_default" alt="">
+      <h3>{{pokemon.name | uppercase}}</h3>
+      <p>
+        <b>Type:</b> {{pokemon.types[0].type.name}}
+      </p>
+      <p>
+        <b>Health:</b> {{pokemon.stats[0].base_stat}}
+      </p>
+      <p>
+        <b>Attack:</b> {{pokemon.stats[1].base_stat}}
+      </p>
+      <p>
+        <b>Defense:</b> {{pokemon.stats[2].base_stat}}
+      </p>
+    </div>
+  </div>
+</div>
+
+ -->

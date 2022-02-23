@@ -1,0 +1,134 @@
+<div class="box">
+  <div class="container-fluid">
+    <div class="row">
+
+    </div>
+    <div class="row margin">
+      <div class="col-sm-4">
+        <div class="box-form container-fluid">
+          <form [formGroup]="postsForm" (ngSubmit)="postProduct()">
+            <div class="mb-3">
+              <input formControlName="prod_name" placeholder="Product name" type="" class="mt-5 form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <span *ngIf="postsForm.get('prod_name')?.touched && postsForm.get('prod_name')?.hasError('required')" style="color: red;">Please enter the product name</span>
+            </div>
+            <div class="mb-3">
+              <select formControlName="prod_category" class="form-select" aria-label="Default select example">
+                <option selected value="">Category</option>
+                <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+              </select>
+              <span *ngIf="postsForm.get('prod_category')?.touched && postsForm.get('prod_category')?.hasError('required')" style="color: red;">Please select the category</span>
+            </div>
+            <div class="mb-3">
+              <input formControlName="price" type="number" placeholder="Price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <span *ngIf="postsForm.get('price')?.touched && postsForm.get('price')?.hasError('required')" style="color: red;">Please enter the price</span>
+            </div>
+
+            <div class="mb-3">
+              <select formControlName="condition" class="form-select" aria-label="Default select example">
+                <option selected value="">Product Condition</option>
+                <option *ngFor="let condition of product_condition"  [value]="condition">{{condition}}</option>
+              </select>
+              <span *ngIf="postsForm.get('condition')?.touched && postsForm.get('condition')?.hasError('required')" style="color: red;">Please enter the condition of the product</span>
+            </div>
+            <div class="mb-3">
+              <textarea formControlName="comment" placeholder="Write the reason for selling" class="form-control" aria-label="With textarea"></textarea>
+              <span *ngIf="postsForm.get('comment')?.touched && postsForm.get('comment')?.hasError('required')" style="color: red;">Please add a comment</span>
+            </div>
+
+            <button [disabled]="!postsForm.valid" type="submit" class="btn form-control style-btn">Add</button>
+            <button [disabled]="!postsForm.valid" (click)="saveProduct()" class="btn form-control mt-2 style-btn">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="box-table container-fluid">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Condition</th>
+
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let products of item">
+                <td>{{products.prod_name}}</td>
+                <td>{{products.prod_category}}</td>
+                <td>{{products.price}}</td>
+                <td>{{products.condition}}</td>
+
+                <td><button class="btn btn-success" (click)="editProduct(products)">Edit</button><button (click)="remProduct(products)" class="btn btn-danger">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- <div class="row mt-5">
+    <div class="col-sm-3">
+      <form [formGroup]="postsForm" (ngSubmit)="postProduct()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Add Product</label>
+          <input formControlName="prod_name" placeholder="Product name" type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <span *ngIf="postsForm.get('prod_name')?.touched && postsForm.get('prod_name')?.hasError('required')" style="color: red;">Please enter the product name</span>
+        </div>
+        <div class="mb-3">
+          <select formControlName="prod_category" class="form-select" aria-label="Default select example">
+            <option selected value="">Category</option>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+          </select>
+          <span *ngIf="postsForm.get('prod_category')?.touched && postsForm.get('prod_category')?.hasError('required')" style="color: red;">Please select the category</span>
+        </div>
+        <div class="mb-3">
+          <input formControlName="price" type="number" placeholder="Price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <span *ngIf="postsForm.get('price')?.touched && postsForm.get('price')?.hasError('required')" style="color: red;">Please enter the price</span>
+        </div>
+
+        <div class="mb-3">
+          <select formControlName="condition" class="form-select" aria-label="Default select example">
+            <option selected value="">Product Condition</option>
+            <option *ngFor="let condition of product_condition"  [value]="condition">{{condition}}</option>
+          </select>
+          <span *ngIf="postsForm.get('condition')?.touched && postsForm.get('condition')?.hasError('required')" style="color: red;">Please enter the condition of the product</span>
+        </div>
+        <div class="mb-3">
+          <textarea formControlName="comment" placeholder="Write the reason for selling" class="form-control" aria-label="With textarea"></textarea>
+          <span *ngIf="postsForm.get('comment')?.touched && postsForm.get('comment')?.hasError('required')" style="color: red;">Please add a comment</span>
+        </div>
+
+        <button [disabled]="!postsForm.valid" type="submit" class="btn btn-primary form-control">Add</button>
+        <button [disabled]="!postsForm.valid" (click)="saveProduct()" class="btn btn-success form-control mt-2">Update</button>
+      </form>
+    </div>
+    <div class="col-sm-9">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Product condition</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let products of item">
+            <td>{{products.prod_name}}</td>
+            <td>{{products.prod_category}}</td>
+            <td>{{products.price}}</td>
+            <td>{{products.condition}}</td>
+            <td>{{products.comment}}</td>
+            <td><button class="btn btn-success" (click)="editProduct(products)">Edit</button><button (click)="remProduct(products)" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
